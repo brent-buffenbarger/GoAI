@@ -1,25 +1,25 @@
 #!/bin/bash
 rm -rf *.so
 echo "Programming language..."
-command=$(ls|grep my_player)
-py=$([[ $command =~ (^|[[:space:]])"my_player.py"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
-py3=$([[ $command =~ (^|[[:space:]])"my_player3.py"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
-cpp=$([[ $command =~ (^|[[:space:]])"my_player.cpp"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
-c11=$([[ $command =~ (^|[[:space:]])"my_player11.cpp"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
-java=$([[ $command =~ (^|[[:space:]])"my_player.java"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
+command=$(ls|grep alpha_beta_agent)
+py=$([[ $command =~ (^|[[:space:]])"alpha_beta_agent.py"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
+py3=$([[ $command =~ (^|[[:space:]])"alpha_beta_agent.py"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
+cpp=$([[ $command =~ (^|[[:space:]])"alpha_beta_agent.cpp"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
+c11=$([[ $command =~ (^|[[:space:]])"alpha_beta_agent.cpp"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
+java=$([[ $command =~ (^|[[:space:]])"alpha_beta_agent.java"($|[[:space:]]) ]] && echo 'yes' || echo 'no')
 if [ "$py" == "yes" ]; then
-	cmd="python my_player.py"
+	cmd="python alpha_beta_agent.py"
 	echo "PY"
 elif [ "$py3" == "yes" ]; then
-    cmd="python3 my_player3.py"
+    	cmd="python3 alpha_beta_agent.py"
 	echo "PY3"
 elif [ "$cpp" == "yes" ]; then
 	g++ -O2 *.cpp -o exe
 	cmd="./exe"
 	echo "CPP"
 elif [ "$java" == "yes" ]; then
-	javac my_player.java
-	cmd="java my_player"
+	javac alpha_beta_agent.java
+	cmd="java alpha_beta_agent"
 	echo "JAVA"
 elif [ "$c11" == "yes" ]; then
 	g++ -std=c++0x -O2 *.cpp -o exe
@@ -28,7 +28,6 @@ elif [ "$c11" == "yes" ]; then
 
 else
     echo "ERROR: INVALID FILENAME"
-	exit 1
 fi
 
 echo ""
@@ -149,7 +148,7 @@ if [ -f "output.txt" ]; then
     rm output.txt
 fi
                                       
-if [ -e "my_player.class" ]; then
+if [ -e "alpha_beta_agent.class" ]; then
     rm *.class
 fi
 if [ -e "exe" ]; then
